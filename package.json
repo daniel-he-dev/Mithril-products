@@ -1,0 +1,19 @@
+{
+  "name": "sdc-products",
+  "version": "1.0.0",
+  "description": "Service for retrieving, inserting, and updating product information",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-Elves/SDC-Products.git"
+  },
+  "author": "Daniel He",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-Elves/SDC-Products/issues"
+  },
+  "homepage": "https://github.com/Team-Elves/SDC-Products#readme"
+}
