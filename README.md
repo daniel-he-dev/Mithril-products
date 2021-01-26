@@ -1,15 +1,6 @@
-# 🚀 Welcome to your new awesome project!
+# SDC - Products Service 
 
-This project has been created using **webpack scaffold**, you can now run
-
+To start webpack dev server
 ```
-npm run build
+npm run start 
 ```
-
-or
-
-```
-yarn build
-```
-
-to bundle your application
