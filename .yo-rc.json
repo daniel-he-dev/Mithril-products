@@ -1,0 +1,56 @@
+{
+  "sdc-products": {
+    "configuration": {
+      "config": {
+        "configName": "config",
+        "topScope": [
+          "const path = require('path');",
+          "const webpack = require('webpack');",
+          "\n",
+          "const HtmlWebpackPlugin = require('html-webpack-plugin')",
+          "\n",
+          "/*\n * We've enabled HtmlWebpackPlugin for you! This generates a html\n * page for you when you compile webpack, which will make you start\n * developing and prototyping faster.\n *\n * https://github.com/jantimon/html-webpack-plugin\n *\n */",
+          "const WorkboxWebpackPlugin = require('workbox-webpack-plugin');",
+          "\n"
+        ],
+        "webpackOptions": {
+          "mode": "'development'",
+          "plugins": [
+            "new webpack.ProgressPlugin()",
+            "new HtmlWebpackPlugin({\n\t\t\t\t\ttemplate: 'index.html'\n\t\t\t\t})",
+            "new WorkboxWebpackPlugin.GenerateSW({\n\t\t\t\tswDest: 'sw.js',\n\t\t\t\tclientsClaim: true,\n\t\t\t\tskipWaiting: false,\n\t\t\t})"
+          ],
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.(js|jsx)$/",
+                "include": [
+                  "path.resolve(__dirname, 'src')"
+                ],
+                "loader": "'babel-loader'"
+              },
+              {
+                "test": "/.css$/",
+                "use": [
+                  {
+                    "loader": "\"style-loader\""
+                  },
+                  {
+                    "loader": "\"css-loader\"",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "devServer": {
+            "open": true,
+            "host": "'localhost'"
+          }
+        }
+      }
+    }
+  }
+}
