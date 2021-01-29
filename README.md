@@ -1,6 +1,6 @@
 # SDC - Products Service - MongoDB Version
 
-To start webpack dev server
+To start express server
 ```
 npm run start 
 ```
