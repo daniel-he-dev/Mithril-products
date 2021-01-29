@@ -1,4 +1,4 @@
-# SDC - Products Service 
+# SDC - Products Service - MongoDB Version
 
 To start webpack dev server
 ```
