@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 const { Product } = require('./db/index.js');
+
+app.use(cors());
 
 //Routing
 app.get('/', (req, res) => {
@@ -63,7 +66,7 @@ app.get('/products/:product_id/styles', (req, res) => {
                     sale_price: s.sale_price,
                     'default?': s.default_style,
                     photos: s.photos.map(p => p.toObject()).map(p => ({ thumbnail_url: p[" thumbnail_url"], url: p.url })),
-                    skus: s.skus.reduce((obj, { id, quantity, size }) => {obj[id] = { quantity, size }; return obj;}, {})
+                    skus: s.skus.reduce((obj, { quantity, size }) => {obj[size] = quantity; return obj;}, {})
                 }))
             }))
             .then(styles => res.send(styles))
