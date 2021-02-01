@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  products_service:
+    image: danielheatx/products_service:firsttry
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+      - CONNECTIONSTRING=mongodb://mongodb:27017/atelier_products_prod
+    volumes:
+      - ./:/code
+    command: npm start
+    links:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+
+  mongo-seed:
+    images: danielheatx/mongo-seed:firsttry
+    links:
+      - mongodb
+
+volumes:
+  mongodb:
+  mongodb_config:
