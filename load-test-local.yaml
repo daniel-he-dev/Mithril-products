@@ -9,10 +9,10 @@ config:
 scenarios:
   - flow:
       #Most likely scenario, list products with default page/count
-      # - loop:
-      #     - get:
-      #         url: /products/
-      #   count: 100
+      - loop:
+          - get:
+              url: /products/
+        count: 100
       #Most likely scenario, get product with default page/count
       # - loop:
       #     - get:
@@ -24,7 +24,7 @@ scenarios:
       #         url: /products/{{$randomNumber(1,1000000)}}/styles
       #   count: 50
       #Most likely scenario, get related products with default page/count
-      - loop:
-          - get:
-              url: /products/{{$randomNumber(1,1000000)}}/related
-        count: 50
+      # - loop:
+      #     - get:
+      #         url: /products/{{$randomNumber(1,1000000)}}/related
+      #   count: 50

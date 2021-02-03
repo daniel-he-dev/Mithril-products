@@ -9,7 +9,7 @@ mongoose.connect(process.env.CONNECTIONSTRING, {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log('connected db')
+    console.log('Connected to MongoDB: ', process.env.CONNECTIONSTRING);
 });
 
 
@@ -63,30 +63,4 @@ const Product_Simple = db.model('Product_Simple', new Schema({
     default_price: String,
 }), 'products_simple');
 
-// //Check they are working
-// Product.find({ id: 1 })
-//     .select('id styles')
-//     .lean()
-//     .then(res => console.log(res[0]));
-
-
-
 module.exports = { Product, Product_Simple };
-
-//DECIDED TO USE MONGOOSE ODM INSTEAD OF MONGODB PACKAGE
-// const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
-
-// const url = 'mongodb://localhost:27017';
-
-// const dbName = 'atelier_products';
-// // const dbName = 'test';
-
-// MongoClient.connect(url, (err, client) => {
-//     assert.strictEqual(null, err);
-//     console.log("Connected successfully to server");
-
-//     const db = client.db(dbName);
-
-//     client.close();
-// })
