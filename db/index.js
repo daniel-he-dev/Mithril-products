@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-mongoose.connect('mongodb://localhost:27017/atelier_products_prod', {
+mongoose.connect(process.env.CONNECTIONSTRING, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-    console.log('connected db')
+    console.log('Connected to MongoDB: ', process.env.CONNECTIONSTRING);
 });
 
 
@@ -54,28 +54,13 @@ const Product = db.model('Product', new Schema({
     })]
 }), 'products')
 
-//Check they are working
-// Product.find({ id: 1 })
-//     .then(res => console.log(res[0].styles[0].photos[1]));
+const Product_Simple = db.model('Product_Simple', new Schema({ 
+    id: Number,
+    name: String,
+    slogan: String,
+    description: String,
+    category: String,
+    default_price: String,
+}), 'products_simple');
 
-
-
-module.exports = { Product };
-
-//DECIDED TO USE MONGOOSE ODM INSTEAD OF MONGODB PACKAGE
-// const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
-
-// const url = 'mongodb://localhost:27017';
-
-// const dbName = 'atelier_products';
-// // const dbName = 'test';
-
-// MongoClient.connect(url, (err, client) => {
-//     assert.strictEqual(null, err);
-//     console.log("Connected successfully to server");
-
-//     const db = client.db(dbName);
-
-//     client.close();
-// })
+module.exports = { Product, Product_Simple };

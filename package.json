@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "start": "nodemon server.js",
+    "start:dev": "nodemon server.js",
+    "start": "node server.js",
     "build": "webpack"
   },
   "repository": {
@@ -34,9 +35,12 @@
     "workbox-webpack-plugin": "^6.0.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.13",
+    "newrelic": "^7.1.0",
     "split2": "^3.2.2"
   }
 }

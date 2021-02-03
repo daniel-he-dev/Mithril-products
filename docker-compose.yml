@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  products_service:
+    build:
+      context: .
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+      - CONNECTIONSTRING=mongodb://mongodb:27017/atelier_products_prod
+    volumes:
+      - ./:/code
+    command: npm start
+    links:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+
+  # mongo-seed:
+  #   build: ./import
+  #   links:
+  #     - mongodb
+
+volumes:
+  mongodb:
+  mongodb_config:
