@@ -1,6 +1,7 @@
 # User determined
 *.csv
 data
+dump
 .DS_Store
 package-lock.json
 super.pem

@@ -98,3 +98,5 @@ db.temp_products.aggregate([
     }},
     { $out: { db: "atelier_products_prod", coll: "products" } }
 ], {allowDiskUse: true});
+
+

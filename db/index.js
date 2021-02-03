@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 mongoose.connect(process.env.CONNECTIONSTRING, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
@@ -54,13 +54,24 @@ const Product = db.model('Product', new Schema({
     })]
 }), 'products')
 
-//Check they are working
+const Product_Simple = db.model('Product_Simple', new Schema({ 
+    id: Number,
+    name: String,
+    slogan: String,
+    description: String,
+    category: String,
+    default_price: String,
+}), 'products_simple');
+
+// //Check they are working
 // Product.find({ id: 1 })
-//     .then(res => console.log(res[0].styles[0].photos[1]));
+//     .select('id styles')
+//     .lean()
+//     .then(res => console.log(res[0]));
 
 
 
-module.exports = { Product };
+module.exports = { Product, Product_Simple };
 
 //DECIDED TO USE MONGOOSE ODM INSTEAD OF MONGODB PACKAGE
 // const MongoClient = require('mongodb').MongoClient;
