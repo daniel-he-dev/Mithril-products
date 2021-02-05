@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   products_service:
-    image: danielheatx/products_service:firsttry
+    image: danielheatx/products_service:latest
     ports:
       - 3001:3001
     environment:
@@ -23,7 +23,7 @@ services:
       - mongodb_config:/data/configdb
 
   mongo-seed:
-    images: danielheatx/mongo-seed:firsttry
+    images: danielheatx/mongo-seed:latest
     links:
       - mongodb
 

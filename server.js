@@ -2,6 +2,7 @@ require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3001
 const { Product, Product_Simple } = require('./db/index.js');
@@ -11,6 +12,12 @@ app.use(cors());
 //Routing
 app.get('/', (req, res) => {
     res.send('this is the root');
+});
+
+//Loader.io Setup
+app.get('/loaderio-7dac35a5eeb86bd42725aa98c7fa4592', (req, res) => {
+    console.log('hello');
+    res.sendFile(path.join(__dirname, '/loaderio-7dac35a5eeb86bd42725aa98c7fa4592.txt'), (err) => console.log(err));
 });
 
 //LIST PRODUCTS
