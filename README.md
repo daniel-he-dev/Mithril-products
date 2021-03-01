@@ -14,11 +14,14 @@ The database is seeded with data from csv files, which have been cleaned using N
 
 ### Performance
 
-On a cloud-based AWS EC2 t2.micro machine (~3.3 Ghz CPU, 1 GB memory), one instance of this service can reliably handle at least **350 RPS** (requests per second) to random products with **135ms latency** and **0.00% error rate** on all rest API routes.
+On a cloud-based AWS EC2 t2.micro machine (~3.3 Ghz CPU, 1 GB memory), one instance of this service can reliably achieve the following performance on all API routes.
+- **350 RPS** (requests per second) to randomized products
+- **135ms latency**
+- **0.00% error rate**
 
 ![loader](docs/readme/loader-run.png)
 
-During development on a 2018 MacBook Pro (6-core Intel Core i9 @ 2.9 Ghz, 32 GB memory), one instance was able to reliably handle **1100 RPS.**
+Locally on a 2018 MacBook Pro (6-core Intel Core i9 @ 2.9 Ghz, 32 GB memory), one instance is able to reliably handle at least **1100 RPS** on all routes
 
 Optimizations with highest performance benefit:
 - Proper indexing of Mongo collection for common API routes (additional storage usage acceptable, non-constrained)
