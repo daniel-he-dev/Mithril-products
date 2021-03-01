@@ -3,8 +3,8 @@
 # Mithril-products
 
 Service built to house product information for the Mithril e-commerice application, designed and optimized for its specific use-case.
-- Usage: Users browse through many products on site, looking to quickly skim through product details. Infrequent inventory updates.
-- Design: Optimize for high-volume low-latency reads from database. Write speed deprioritized. Data reliability requirements are nominal.
+- **Usage:** Users browse through many products on site, looking to quickly skim through product details. Infrequent inventory updates.
+- **Design:** Optimize for high-volume low-latency reads from database. Write speed deprioritized. Data reliability requirements are nominal.
 
 ## Description
 
@@ -14,11 +14,11 @@ The database is seeded with data from csv files, which have been cleaned using N
 
 ### Performance
 
-On a cloud-based AWS EC2 t2.micro machine (~3.3 Ghz CPU, 1 GB memory), one instance of this service can reliably handle at least 350 RPS (requests per second) to random products with 135ms latency and 0.00% error rate on all rest API routes.
+On a cloud-based AWS EC2 t2.micro machine (~3.3 Ghz CPU, 1 GB memory), one instance of this service can reliably handle at least **350 RPS** (requests per second) to random products with **135ms latency** and **0.00% error rate** on all rest API routes.
 
 ![loader](docs/readme/loader-run.png)
 
-During development on a 2018 MacBook Pro (6-core Intel Core i9 @ 2.9 Ghz, 32 GB memory), one instance was able to reliably handle 1100 RPS.
+During development on a 2018 MacBook Pro (6-core Intel Core i9 @ 2.9 Ghz, 32 GB memory), one instance was able to reliably handle **1100 RPS.**
 
 Optimizations with highest performance benefit:
 - Proper indexing of Mongo collection for common API routes (additional storage usage acceptable, non-constrained)
@@ -70,4 +70,3 @@ This service is containerized and available on Dockerhub in its latest iteration
 ## License
 
 MIT License
-```
